@@ -1,0 +1,70 @@
+<head>
+	{%- block styles %}
+	<!-- Bootstrap -->
+	<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+	{%- endblock styles %}
+	<!-- <style type="text/css">
+		body {
+			background: rgb(218, 226, 224) !important;
+		}
+		/* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+	</style> -->
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+		<div class="container">
+			<a class="navbar-brand" href="/">RecoPrism Anonymize 👻</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../anonymize">Anonymize data</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">donation</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Contact</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="text-center">
+			<img src="{{ url_for('static', filename = 'images/cover.jpg') }}" class="img-fluid" style="width:100% ;height:40%">
+		</div>
+		<form action="/anonymize" method="POST">
+			<div class="form-group">
+				    <label for="exampleFormControlFile1">UserName</label>
+					<input class="form-control" type="text" placeholder="Default input">
+					<label for="exampleFormControlFile1">Password</label>
+					<input class="form-control" type="text" placeholder="Default input">
+					<label for="exampleFormControlFile1">DB Name</label>
+					<input class="form-control" type="text" placeholder="Default input">
+					<label for="exampleFormControlFile1">Host</label>
+					<input class="form-control" type="text" placeholder="Default input">
+					<label for="exampleFormControlFile1">Table Name</label>
+					<input class="form-control" type="text" placeholder="Default input">
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary mb-2">Next</button>
+			</div>
+		</form>
+		{% block scripts %}
+		<script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
+		<script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+		{%- endblock scripts %}
+</body>
