@@ -46,18 +46,18 @@
 		<div class="text-center">
 			<img src="{{ url_for('static', filename = 'images/cover.jpg') }}" class="img-fluid" style="width:100% ;height:40%">
 		</div>
-		<form action="/anonymize" method="POST">
+		<form action="/anonymize/db" method="POST">
 			<div class="form-group">
-				    <label for="exampleFormControlFile1">UserName</label>
-					<input class="form-control" type="text" placeholder="Default input">
+				    <label for="exampleFormControlFile1">User Name</label>
+					<input class="form-control" name = "user" type="text" placeholder="User Name">
 					<label for="exampleFormControlFile1">Password</label>
-					<input class="form-control" type="text" placeholder="Default input">
+					<input class="form-control" name = "password" type="password" placeholder="password">
 					<label for="exampleFormControlFile1">DB Name</label>
-					<input class="form-control" type="text" placeholder="Default input">
+					<input class="form-control" name = "database" type="text" placeholder="DB Name">
 					<label for="exampleFormControlFile1">Host</label>
-					<input class="form-control" type="text" placeholder="Default input">
+					<input class="form-control" name = "host" type="text" placeholder="Host for example 127.0.0.1">
 					<label for="exampleFormControlFile1">Table Name</label>
-					<input class="form-control" type="text" placeholder="Default input">
+					<input class="form-control" name = "table_name" type="text" placeholder="Table Name">
 			</div>
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary mb-2">Next</button>
