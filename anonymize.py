@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+import re
 import pandas as pd
 
 def anonymize( df , tableName ):
@@ -16,10 +16,11 @@ def renameColumnsHeader(df , tableHeader):
     return df
 
 def replaceColumnsData(df , column_name ,tableHeader):
-    print(df[column_name])
+    pattern = "^" + tableHeader + column_name + "[1-9]+$"
     for index , value in enumerate(df[column_name]):
-        df[column_name] = df[column_name].replace( value, tableHeader + column_name + str(index))
+        if not re.search(pattern, str(value)):
+            df[column_name] = df[column_name].replace( value, tableHeader + column_name + str(index))
     return df
 
-df = pd.read_csv("./titanic_train2.csv")
-print(anonymize(df, "users").head())
+df = pd.read_csv("./titanic_train.csv")
+print(anonymize(df, "users").head(25))
