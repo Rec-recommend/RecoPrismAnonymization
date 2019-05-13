@@ -1,19 +1,25 @@
+#!/usr/bin/python3
+
 import pandas as pd
 
-def anonymize( data , tableName ):
+def anonymize( df , tableName ):
     tableHeader = tableName[0]
-    data = renameColumnsHeader(data , tableHeader)
-    return data
+    df = renameColumnsHeader(df , tableHeader)
+    return df
 
-def renameColumnsHeader(data , tableHeader):
+def renameColumnsHeader(df , tableHeader):
     char= 'a'
-    for column in data.columns:
-        data.rename(columns={column: char}, inplace=True)
-        data = replaceColumnsData(data , char ,tableHeader)
+    for column in df.columns:
+        df.rename(columns={column: char}, inplace=True)
+        df = replaceColumnsData(df , char ,tableHeader)
         char = chr(ord(char) + 1)
-    return data
+    return df
 
-def replaceColumnsData(data , char ,tableHeader):
-    for index , i in enumerate(data[char]):
-        data[char] = data[char].replace( i, tableHeader + char + str(index))
-    return data
+def replaceColumnsData(df , column_name ,tableHeader):
+    print(df[column_name])
+    for index , value in enumerate(df[column_name]):
+        df[column_name] = df[column_name].replace( value, tableHeader + column_name + str(index))
+    return df
+
+df = pd.read_csv("./titanic_train2.csv")
+print(anonymize(df, "users").head())
