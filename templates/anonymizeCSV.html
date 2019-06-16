@@ -62,15 +62,28 @@
 					  <input type="file" class="custom-file-input" name = "file">
 					  <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
 					</div>
-				  </div>
+			</div>
 				  <label for="exampleFormControlFile1">Table Name</label>
 				  <input class="form-control" name = "table_name" type="text" placeholder="Table Name">
+				  <br>
 			<div class="text-center">
-				<button type="submit" class="btn btn-primary mb-2">Next</button>
+				<button type="submit" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModalCenter">Anonymize 👻</button>
 			</div>
 		</form>
 		{% block scripts %}
 		<script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
 		<script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
 		{%- endblock scripts %}
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					<div class="modal-body">
+					<img src="{{ url_for('static', filename = 'images/wait.gif') }}" class="img-fluid" style="width:100% ;height:80%">					  
+					</div>
+				  </div>
+				</div>
+			  </div>
 </body>
