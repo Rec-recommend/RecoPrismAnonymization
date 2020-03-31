@@ -2,7 +2,7 @@ asn1crypto==0.24.0
 Babel==2.6.0
 backcall==0.1.0
 beautifulsoup4==4.7.1
-bleach==3.1.0
+bleach==3.1.4
 blinker==1.4
 Brlapi==0.6.7
 cached-property==1.5.1
